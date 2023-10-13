@@ -51,12 +51,14 @@ public class Main {
                                 } else {
                                     System.out.println("Đăng ký thành công, vui lòng đăng nhập");
                                     userList.add(user1);
+                                    FileObj.writeDataToFile(userList);
                                     check1 = false;
                                 }
                             }
                         } else {
                             System.out.println("Đăng ký thành công, vui lòng đăng nhập");
                             userList.add(user1);
+                            FileObj.writeDataToFile(userList);
                             check1 = false;
                         }
                     }

@@ -15,7 +15,6 @@ public class FileObj {
 
         } catch (IOException e) {
             System.out.println("Lỗi!!");
-
         }
     }
 
