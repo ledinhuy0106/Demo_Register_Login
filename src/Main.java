@@ -43,17 +43,19 @@ public class Main {
                     boolean check1 = true;
                     while (check1) {
                         User user1 = userService.register();
-                        boolean userExists = false;
-
-                        for (User user : userList) {
-                            if (user.getName().equals(user1.getName())) {
-                                System.out.println("Đã tồn tại tên đăng nhập, vui lòng nhập tên đăng nhập khác");
-                                userExists = true;
+                        if (userList!=null) {
+                            for (User user : userList) {
+                                if (user.getName().equals(user1.getName())) {
+                                    System.out.println("Đã tồn tại tên đăng nhập, vui lòng nhập tên đăng nhập khác");
+                                } else {
+                                    System.out.println("Đăng ký thành công, vui lòng đăng nhập");
+                                    userList.add(user1);
+                                    FileObj.writeDataToFile(userList);
+                                    check1 = false;
+                                }
                                 break;
                             }
-                        }
-
-                        if (!userExists) {
+                        } else {
                             System.out.println("Đăng ký thành công, vui lòng đăng nhập");
                             userList.add(user1);
                             FileObj.writeDataToFile(userList);
